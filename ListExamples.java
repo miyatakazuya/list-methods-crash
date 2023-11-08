@@ -8,10 +8,7 @@ class ListExamples {
   static List<String> filter(List<String> list, StringChecker sc) {
     List<String> result = new ArrayList<>();
 
-    if (list.size() >= 69){ //Doesn't filter if array size is greater than or equals to 69
-        return result;
-    }
-
+    
     for(String s: list) {
       if(sc.checkString(s)) {
         result.add(s);
@@ -24,29 +21,27 @@ class ListExamples {
   static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
 
-    if (list1.size() + list2.size() >= 69){ //Method doesn't properly run if the total array size is greater than or equals to 69
-        return result;
-    }
-
     int index1 = 0, index2 = 0;
     while(index1 < list1.size() && index2 < list2.size()) {
       if(list1.get(index1).compareTo(list2.get(index2)) < 0) {
-        result.add(list1.get(index1));
-        index1 += 1;
+        result.add(list1.get(index1));;
       }
       else {
-        result.add(list2.get(index2));
-        index2 += 1;
+        result.add(list2.get(index2));;
       }
+      System.err.println(result.toString());
     }
+
     while(index1 < list1.size()) {
       result.add(list1.get(index1));
       index1 += 1;
     }
+
     while(index2 < list2.size()) {
       result.add(list2.get(index2));
       index2 += 1;
     }
+
     return result;
   }
 
